@@ -1,9 +1,9 @@
 ﻿namespace AthenaMock.Models.NOR_Account.Request
 {
-    public class Market
+    public class MarketReq
     {
         public string locale { get; set; }
         public string market { get; set; }
-        public List<TargetedAudience> targeted_audiences { get; set; }
+        public List<TargetedAudienceReq> targeted_audiences { get; set; }
     }
 }

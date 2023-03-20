@@ -14,6 +14,6 @@
         public string project_type { get; set; }
         public Account account { get; set; }
         public ExchangeRate exchange_rate { get; set; }
-        public List<Market> markets { get; set; }
+        public List<MarketReq> markets { get; set; }
     }
 }

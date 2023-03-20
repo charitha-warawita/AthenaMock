@@ -1,6 +1,6 @@
 ﻿namespace AthenaMock.Models.NOR_Account.Request
 {
-    public class ProjectSampleSource
+    public class ProjectSampleSourceReq
     {
         public int project_sample_source_id { get; set; }
         public int completes { get; set; }

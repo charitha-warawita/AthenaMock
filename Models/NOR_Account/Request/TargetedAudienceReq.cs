@@ -1,6 +1,6 @@
 ﻿namespace AthenaMock.Models.NOR_Account.Request
 {
-    public class TargetedAudience
+    public class TargetedAudienceReq
     {
         public int targeted_audience_id { get; set; }
         public string targeted_audience_name { get; set; }
@@ -12,6 +12,6 @@
         public string estimated_fieldwork_start_date { get; set; }
         public string estimated_fieldwork_end_date { get; set; }
         public int waves { get; set; }
-        public List<ProjectSampleSource> project_sample_sources { get; set; }
+        public List<ProjectSampleSourceReq> project_sample_sources { get; set; }
     }
 }

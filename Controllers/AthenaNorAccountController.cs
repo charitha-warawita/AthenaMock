@@ -15,36 +15,22 @@ namespace AthenaMock.Controllers
             _logger = logger;
         }
 
-        //[HttpPost]
-        //public AthenaNORAccountResponse GetPrice(AthenaNORAccountRequest request) 
-        //{
-        //    return new AthenaNORAccountResponse();
-        //}
-
         [HttpPost]
-        public string GetPriceTest(int val)
-        {
-            if (val < 100)
-            {
-                return $"{val} is smaller than 100";
-            }
-            return $"{val} is equal or bigger than 100";
-        }
-
-        [HttpPost]
-        public AthenaNORAccountResponse GetPrice(int valueInt)
+        public AthenaNORAccountResponse GetPrice(AthenaNORAccountRequest req) // (AthenaNORAccountRequest request)
         {
             var res = new AthenaNORAccountResponse();
-            res.project_id = 1233;
+            res.project_id = req.project_id;
             res.markets = new List<Models.NOR_Account.Response.Market>();
 
-            Models.NOR_Account.Response.Market mkt = new Models.NOR_Account.Response.Market {
+            Models.NOR_Account.Response.Market mkt = new Models.NOR_Account.Response.Market
+            {
                 locale = "en-US",
                 market = "USA",
                 preferred_currency = "EUR",
-                price_total= 2173
+                price_total = 2173
             };
-            mkt.targeted_audiences = new List<Models.NOR_Account.Response.TargetedAudience>();  
+            mkt.targeted_audiences = new List<Models.NOR_Account.Response.TargetedAudience>();
+            res.markets.Add(mkt);
 
             return res;
         }
