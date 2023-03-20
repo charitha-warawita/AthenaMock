@@ -1,6 +1,6 @@
-﻿namespace AthenaMock.Models
+﻿namespace AthenaMock.Models.NOR_Account.Request
 {
-    public class AthenaRequest
+    public class AthenaNORAccountRequest
     {
         public string source_system { get; set; }
         public int project_id { get; set; }

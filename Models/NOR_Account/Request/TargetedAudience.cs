@@ -1,4 +1,4 @@
-﻿namespace AthenaMock.Models
+﻿namespace AthenaMock.Models.NOR_Account.Request
 {
     public class TargetedAudience
     {
