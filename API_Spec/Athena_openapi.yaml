@@ -1,0 +1,407 @@
+openapi: 3.0.1
+info:
+  title: Athena_Contract
+  version: '1.0'
+paths:
+  /api/GetPrice:
+    post:
+      tags:
+        - AthenaNorAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+  /api/GetPriceSpecial:
+    post:
+      tags:
+        - AthenaNorAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        sugar_account_uuid:
+          type: string
+          nullable: true
+        client_maconomy_number:
+          type: string
+          nullable: true
+        country_code:
+          type: string
+          nullable: true
+        mac_company_number:
+          type: string
+          nullable: true
+        preferred_currency:
+          type: string
+          nullable: true
+        client_segment:
+          type: string
+          nullable: true
+        brand:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AthenaNORAccountRequest:
+      type: object
+      properties:
+        source_system:
+          type: string
+          nullable: true
+        project_id:
+          type: integer
+          format: int32
+        project_name:
+          type: string
+          nullable: true
+        pricing_source:
+          type: string
+          nullable: true
+        pricing_formula:
+          type: string
+          nullable: true
+        service_type:
+          type: string
+          nullable: true
+        kmp_product_classification:
+          type: string
+          nullable: true
+        kmp_product_type:
+          type: string
+          nullable: true
+        kmp_media_type:
+          type: string
+          nullable: true
+        project_type:
+          type: string
+          nullable: true
+        account:
+          $ref: '#/components/schemas/Account'
+        exchange_rate:
+          $ref: '#/components/schemas/ExchangeRate'
+        markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketReq'
+          nullable: true
+      additionalProperties: false
+    AthenaNORAccountResponse:
+      type: object
+      properties:
+        project_id:
+          type: integer
+          format: int32
+        markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Market'
+          nullable: true
+      additionalProperties: false
+    ExchangeRate:
+      type: object
+      properties:
+        usd:
+          type: integer
+          format: int32
+        gbp:
+          type: number
+          format: double
+        eur:
+          type: number
+          format: double
+        hkd:
+          type: integer
+          format: int32
+        inr:
+          type: integer
+          format: int32
+        aud:
+          type: number
+          format: double
+        twd:
+          type: integer
+          format: int32
+        jpy:
+          type: integer
+          format: int32
+        nzd:
+          type: integer
+          format: int32
+        aed:
+          type: integer
+          format: int32
+        cny:
+          type: integer
+          format: int32
+        sgd:
+          type: integer
+          format: int32
+        cad:
+          type: integer
+          format: int32
+        krw:
+          type: integer
+          format: int32
+        myr:
+          type: integer
+          format: int32
+        zar:
+          type: integer
+          format: int32
+        huf:
+          type: integer
+          format: int32
+        thb:
+          type: integer
+          format: int32
+        brl:
+          type: integer
+          format: int32
+        idr:
+          type: integer
+          format: int32
+        mxn:
+          type: integer
+          format: int32
+        pln:
+          type: integer
+          format: int32
+        rub:
+          type: integer
+          format: int32
+        sek:
+          type: integer
+          format: int32
+        ars:
+          type: integer
+          format: int32
+        php:
+          type: integer
+          format: int32
+        ron:
+          type: integer
+          format: int32
+        vnd:
+          type: integer
+          format: int32
+        cop:
+          type: integer
+          format: int32
+        vef:
+          type: integer
+          format: int32
+        chf:
+          type: integer
+          format: int32
+        dkk:
+          type: integer
+          format: int32
+        nok:
+          type: integer
+          format: int32
+        try:
+          type: integer
+          format: int32
+        czk:
+          type: integer
+          format: int32
+        clp:
+          type: integer
+          format: int32
+        pen:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Market:
+      type: object
+      properties:
+        locale:
+          type: string
+          nullable: true
+        market:
+          type: string
+          nullable: true
+        price_total:
+          type: integer
+          format: int32
+        preferred_currency:
+          type: string
+          nullable: true
+        targeted_audiences:
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetedAudience'
+          nullable: true
+      additionalProperties: false
+    MarketReq:
+      type: object
+      properties:
+        locale:
+          type: string
+          nullable: true
+        market:
+          type: string
+          nullable: true
+        targeted_audiences:
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetedAudienceReq'
+          nullable: true
+      additionalProperties: false
+    ProjectSampleSource:
+      type: object
+      properties:
+        project_sample_source_id:
+          type: integer
+          format: int32
+        completes:
+          type: integer
+          format: int32
+        sample_source_id:
+          type: integer
+          format: int32
+        sample_platform:
+          type: string
+          nullable: true
+        sample_source_cost:
+          type: integer
+          format: int32
+        sample_source_currency:
+          type: string
+          nullable: true
+        price:
+          type: number
+          format: double
+        preferred_currency:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ProjectSampleSourceReq:
+      type: object
+      properties:
+        project_sample_source_id:
+          type: integer
+          format: int32
+        completes:
+          type: integer
+          format: int32
+        sample_source_id:
+          type: integer
+          format: int32
+        sample_platform:
+          type: string
+          nullable: true
+        sample_source_cost:
+          type: integer
+          format: int32
+        sample_source_currency:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TargetedAudience:
+      type: object
+      properties:
+        targeted_audience_id:
+          type: integer
+          format: int32
+        adjusted_incidence_rate:
+          type: integer
+          format: int32
+        adjusted_length_of_interview:
+          type: integer
+          format: int32
+        price_targeted_audience:
+          type: integer
+          format: int32
+        preferred_currency:
+          type: string
+          nullable: true
+        project_sample_sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSampleSource'
+          nullable: true
+      additionalProperties: false
+    TargetedAudienceReq:
+      type: object
+      properties:
+        targeted_audience_id:
+          type: integer
+          format: int32
+        targeted_audience_name:
+          type: string
+          nullable: true
+        panelist_type:
+          type: string
+          nullable: true
+        sampling_complexity:
+          type: string
+          nullable: true
+        targeted_complete:
+          type: integer
+          format: int32
+        estimated_incidence_rate:
+          type: integer
+          format: int32
+        estimated_length_of_interview:
+          type: integer
+          format: int32
+        estimated_fieldwork_start_date:
+          type: string
+          nullable: true
+        estimated_fieldwork_end_date:
+          type: string
+          nullable: true
+        waves:
+          type: integer
+          format: int32
+        project_sample_sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSampleSourceReq'
+          nullable: true
+      additionalProperties: false
