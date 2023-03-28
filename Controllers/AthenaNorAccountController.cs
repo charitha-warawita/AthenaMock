@@ -17,10 +17,10 @@ namespace AthenaMock.Controllers
 
         [Route("api/GetPrice")]
         [HttpPost]
-        public AthenaNORAccountResponse GetPrice(AthenaNORAccountRequest req) // (AthenaNORAccountRequest request)
+        public ProjectResponse GetPrice(ProjectRequest req) // (AthenaNORAccountRequest request)
         {
             // Binding , Inner Process ==> mock sample ==>
-            var res = new AthenaNORAccountResponse();
+            var res = new ProjectResponse();
             res.project_id = req.project_id;
             res.markets = new List<Models.NOR_Account.Response.Market>();
 
@@ -39,10 +39,10 @@ namespace AthenaMock.Controllers
 
         [Route("api/GetPriceSpecial")]
         [HttpPost]
-        public AthenaNORAccountResponse GetPriceSpecial(AthenaNORAccountRequest req) // (AthenaNORAccountRequest request)
+        public ProjectResponse GetPriceSpecial(ProjectRequest req) // (AthenaNORAccountRequest request)
         {
             // Binding , Inner Process ==> mock sample ==>
-            var res = new AthenaNORAccountResponse();
+            var res = new ProjectResponse();
             res.project_id = req.project_id;
 
             Models.NOR_Account.Response.Market mkt = new Models.NOR_Account.Response.Market

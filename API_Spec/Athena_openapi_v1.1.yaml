@@ -1,0 +1,420 @@
+openapi: 3.0.1
+info:
+  title: Athena_Contract
+  version: '1.0'
+paths:
+  /api/GetPrice:
+    post:
+      tags:
+        - AthenaNorAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+  /api/GetPriceSpecial:
+    post:
+      tags:
+        - AthenaNorAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AthenaNORAccountRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AthenaNORAccountResponse'
+components:
+  schemas:
+    Account:
+      required:
+        - brand
+        - client_segment
+        - country_code
+        - mac_company_number
+        - preferred_currency
+      type: object
+      properties:
+        sugar_account_uuid:
+          type: string
+          nullable: true
+        client_maconomy_number:
+          type: string
+          nullable: true
+        country_code:
+          type: string
+        mac_company_number:
+          type: string
+        preferred_currency:
+          type: string
+        client_segment:
+          type: string
+        brand:
+          type: string
+      additionalProperties: false
+    AthenaNORAccountRequest:
+      required:
+        - exchange_rate
+        - kmp_product_type
+        - pricing_formula
+        - pricing_source
+        - project_type
+        - service_type
+        - source_system
+      type: object
+      properties:
+        source_system:
+          type: string
+        project_id:
+          type: integer
+          format: int32
+        project_name:
+          type: string
+          nullable: true
+        pricing_source:
+          type: string
+        pricing_formula:
+          type: string
+        service_type:
+          type: string
+        kmp_product_classification:
+          type: string
+          nullable: true
+        kmp_product_type:
+          type: string
+        kmp_media_type:
+          type: string
+          nullable: true
+        project_type:
+          type: string
+        account:
+          $ref: '#/components/schemas/Account'
+        exchange_rate:
+          $ref: '#/components/schemas/ExchangeRate'
+        markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketReq'
+          nullable: true
+      additionalProperties: false
+    AthenaNORAccountResponse:
+      type: object
+      properties:
+        project_id:
+          type: integer
+          format: int32
+        markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Market'
+          nullable: true
+      additionalProperties: false
+    ExchangeRate:
+      type: object
+      properties:
+        usd:
+          type: number
+          format: double
+        gbp:
+          type: number
+          format: double
+        eur:
+          type: number
+          format: double
+        hkd:
+          type: number
+          format: double
+        inr:
+          type: number
+          format: double
+        aud:
+          type: number
+          format: double
+        twd:
+          type: number
+          format: double
+        jpy:
+          type: number
+          format: double
+        nzd:
+          type: number
+          format: double
+        aed:
+          type: number
+          format: double
+        cny:
+          type: number
+          format: double
+        sgd:
+          type: number
+          format: double
+        cad:
+          type: number
+          format: double
+        krw:
+          type: number
+          format: double
+        myr:
+          type: number
+          format: double
+        zar:
+          type: number
+          format: double
+        huf:
+          type: number
+          format: double
+        thb:
+          type: number
+          format: double
+        brl:
+          type: number
+          format: double
+        idr:
+          type: number
+          format: double
+        mxn:
+          type: number
+          format: double
+        pln:
+          type: number
+          format: double
+        rub:
+          type: number
+          format: double
+        sek:
+          type: number
+          format: double
+        ars:
+          type: number
+          format: double
+        php:
+          type: number
+          format: double
+        ron:
+          type: number
+          format: double
+        vnd:
+          type: number
+          format: double
+        cop:
+          type: number
+          format: double
+        vef:
+          type: number
+          format: double
+        chf:
+          type: number
+          format: double
+        dkk:
+          type: number
+          format: double
+        nok:
+          type: number
+          format: double
+        try:
+          type: number
+          format: double
+        czk:
+          type: number
+          format: double
+        clp:
+          type: number
+          format: double
+        pen:
+          type: number
+          format: double
+      additionalProperties: false
+    Market:
+      required:
+        - locale
+        - market
+      type: object
+      properties:
+        locale:
+          type: string
+        market:
+          type: string
+        price_total:
+          type: integer
+          format: int32
+        preferred_currency:
+          type: string
+          nullable: true
+        targeted_audiences:
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetedAudience'
+          nullable: true
+      additionalProperties: false
+    MarketReq:
+      required:
+        - locale
+        - market
+      type: object
+      properties:
+        locale:
+          type: string
+        market:
+          type: string
+        targeted_audiences:
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetedAudienceReq'
+          nullable: true
+      additionalProperties: false
+    ProjectSampleSource:
+      type: object
+      properties:
+        project_sample_source_id:
+          type: integer
+          format: int32
+        completes:
+          type: integer
+          format: int32
+        sample_source_id:
+          type: integer
+          format: int32
+        sample_platform:
+          type: string
+          nullable: true
+        sample_source_cost:
+          type: integer
+          format: int32
+        sample_source_currency:
+          type: string
+          nullable: true
+        price:
+          type: number
+          format: double
+        preferred_currency:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ProjectSampleSourceReq:
+      type: object
+      properties:
+        project_sample_source_id:
+          type: integer
+          format: int32
+        completes:
+          type: integer
+          format: int32
+        sample_source_id:
+          type: integer
+          format: int32
+        sample_platform:
+          type: string
+          nullable: true
+        sample_source_cost:
+          type: integer
+          format: int32
+        sample_source_currency:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TargetedAudience:
+      type: object
+      properties:
+        targeted_audience_id:
+          type: integer
+          format: int32
+        adjusted_incidence_rate:
+          type: integer
+          format: int32
+        adjusted_length_of_interview:
+          type: integer
+          format: int32
+        price_targeted_audience:
+          type: integer
+          format: int32
+        preferred_currency:
+          type: string
+          nullable: true
+        project_sample_sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSampleSource'
+          nullable: true
+      additionalProperties: false
+    TargetedAudienceReq:
+      required:
+        - estimated_incidence_rate
+        - estimated_length_of_interview
+        - panelist_type
+        - targeted_complete
+        - waves
+      type: object
+      properties:
+        targeted_audience_id:
+          type: integer
+          format: int32
+        targeted_audience_name:
+          type: string
+          nullable: true
+        panelist_type:
+          type: string
+        sampling_complexity:
+          type: string
+          nullable: true
+        targeted_complete:
+          type: integer
+          format: int32
+        estimated_incidence_rate:
+          type: number
+          format: float
+        estimated_length_of_interview:
+          type: integer
+          format: int32
+        estimated_fieldwork_start_date:
+          type: string
+          nullable: true
+        estimated_fieldwork_end_date:
+          type: string
+          nullable: true
+        proposed_fieldwork_length:
+          type: integer
+          format: int32
+        waves:
+          type: integer
+          format: int32
+        project_sample_sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSampleSourceReq'
+          nullable: true
+      additionalProperties: false

@@ -2,42 +2,42 @@
 {
     public class ExchangeRate
     {
-        public int USD { get; set; }
+        public double USD { get; set; }
         public double GBP { get; set; }
         public double EUR { get; set; }
-        public int HKD { get; set; }
-        public int INR { get; set; }
+        public double HKD { get; set; }
+        public double INR { get; set; }
         public double AUD { get; set; }
-        public int TWD { get; set; }
-        public int JPY { get; set; }
-        public int NZD { get; set; }
-        public int AED { get; set; }
-        public int CNY { get; set; }
-        public int SGD { get; set; }
-        public int CAD { get; set; }
-        public int KRW { get; set; }
-        public int MYR { get; set; }
-        public int ZAR { get; set; }
-        public int HUF { get; set; }
-        public int THB { get; set; }
-        public int BRL { get; set; }
-        public int IDR { get; set; }
-        public int MXN { get; set; }
-        public int PLN { get; set; }
-        public int RUB { get; set; }
-        public int SEK { get; set; }
-        public int ARS { get; set; }
-        public int PHP { get; set; }
-        public int RON { get; set; }
-        public int VND { get; set; }
-        public int COP { get; set; }
-        public int VEF { get; set; }
-        public int CHF { get; set; }
-        public int DKK { get; set; }
-        public int NOK { get; set; }
-        public int TRY { get; set; }
-        public int CZK { get; set; }
-        public int CLP { get; set; }
-        public int PEN { get; set; }
+        public double TWD { get; set; }
+        public double JPY { get; set; }
+        public double NZD { get; set; }
+        public double AED { get; set; }
+        public double CNY { get; set; }
+        public double SGD { get; set; }
+        public double CAD { get; set; }
+        public double KRW { get; set; }
+        public double MYR { get; set; }
+        public double ZAR { get; set; }
+        public double HUF { get; set; }
+        public double THB { get; set; }
+        public double BRL { get; set; }
+        public double IDR { get; set; }
+        public double MXN { get; set; }
+        public double PLN { get; set; }
+        public double RUB { get; set; }
+        public double SEK { get; set; }
+        public double ARS { get; set; }
+        public double PHP { get; set; }
+        public double RON { get; set; }
+        public double VND { get; set; }
+        public double COP { get; set; }
+        public double VEF { get; set; }
+        public double CHF { get; set; }
+        public double DKK { get; set; }
+        public double NOK { get; set; }
+        public double TRY { get; set; }
+        public double CZK { get; set; }
+        public double CLP { get; set; }
+        public double PEN { get; set; }
     }
 }

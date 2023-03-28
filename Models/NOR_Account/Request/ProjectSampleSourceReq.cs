@@ -1,4 +1,6 @@
-﻿namespace AthenaMock.Models.NOR_Account.Request
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AthenaMock.Models.NOR_Account.Request
 {
     public class ProjectSampleSourceReq
     {
@@ -6,7 +8,8 @@
         public int completes { get; set; }
         public int sample_source_id { get; set; }
         public string sample_platform { get; set; }
-        public int sample_source_cost { get; set; }
+        public double sample_source_cost { get; set; }
+        [Required]
         public string sample_source_currency { get; set; }
     }
 }
